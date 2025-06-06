@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Manuplating CSS</title>
+    </head>
+    <body>
+        <div id="box1" class="box">First</div>
+        <div id="box2" class="box">Second</div>
+        <p id="myPara" style="color: red;">This is a paragraph</p>
+        <div id="box" class="red square">This is a box</div>
+        <button onclick="demo()">Run Demo</button>
+
+        
+        <script>
+            //styleproperty
+            let div1=document.getElementById("box1");
+            div1.style.backgroundColor="Blue";
+            div1.style.border="2px";
+            div1.style.height="200px";
+            div1.style.width="200px";
+            
+            //cssText
+            let div2=document.getElementById("box2");
+            div2.style.cssText = "color: red; font-size: 20px; background-color: yellow;";
+
+            //computed style
+            let color = getComputedStyle(document.getElementById("myPara")).color;
+            console.log(color);
+
+            //classname
+            let di=document.getElementById("box1");
+            console.log(di.className);
+            di.className="box1";
+            console.log(di.className);
+
+            //classlist
+            const box = document.getElementById("box");
+
+            // Add a class
+            box.classList.add("shadow");
+            console.log("After add:", box.className); 
+
+            // Remove a class
+            box.classList.remove("red");
+            console.log("After remove:", box.className); 
+
+            // Toggle a class
+            box.classList.toggle("active");
+            console.log("After toggle:", box.className); 
+
+            // Check if it contains a class
+            console.log("Contains 'square'?", box.classList.contains("square"));
+
+            // Replace a class
+            box.classList.replace("square", "circle");
+            console.log("After replace:", box.className); 
+
+            // Length of classes
+            console.log("Number of classes:", box.classList.length); 
+
+            // Access class by index
+            console.log("First class:", box.classList[0]); 
+
+
+
+
+
+        </script>
+    </body>
+</html>

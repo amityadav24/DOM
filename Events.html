@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Listner</title>
+
+</head>
+
+<body>
+    <div id="parent">
+        <button id="child">Click ME</button>
+    </div>
+    <button id="btn1" onclick="greet">Click</button>
+    <button id="btn2">Touch</button>
+    <button id="btn3">Clicked</button>
+    <button id="btn">Box</button>
+
+    <script>
+        //event bubbling and event capturing
+        document.getElementById("parent").addEventListener("click", function () {
+            console.log("Parent Clicked");
+        }, true)
+        document.getElementById("child").addEventListener("click", function () {
+            console.log("Child Clicked");
+        })
+
+        //onclickeventlistner
+        function greet() {
+            alert("Hello Everyone");
+        }
+
+        //
+        let btn = document.getElementById("btn2");
+        btn.onclick = function greet() {
+            alert("Hello there");
+        }
+        //add event listner
+        document.getElementById("btn1").addEventListener("click", function () {
+            alert("Button clicked!");
+        });
+
+        //named event lsitner
+        function showAlert() {
+            alert("Hello!");
+        }
+
+        let btn3 = document.getElementById("btn3");
+        btn3.addEventListener("click", showAlert);
+
+        //removeevent listner
+        //btn3.removeEventListener("click", showAlert);
+
+        //box creation
+        function createbox() {
+            let b = document.createElement("div");
+            b.style.cssText = "background-color: yellow; height: 200px; width: 200px; border: 2px solid red;";
+            document.body.appendChild(b);
+
+        }
+
+        let box = document.getElementById("btn");
+        box.addEventListener("click", createbox);
+
+
+    </script>
+</body>
+
+</html>

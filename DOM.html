@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>DOM</title>
+    </head>
+    <body>
+        <h3 id="result">Hi..</h3>
+        <p>Amit</p>
+        <p>Yadav</p>
+        <p class="p1">This is one..</p>
+        <p class="p1">This is second..</p>
+        <form>
+        Male<input type="radio" value="Male" name="gender">
+        Female<input type="radio" value="Female" name="gender">
+        </form>
+        <div id="outer">
+            <p id="inner">This is first inner paragraph.</p>
+            <p id="inner">This is second inner paragraph.</p>
+             <p id="inner">This is third inner paragraph.</p>
+        </div>
+        <div id="sib">
+            <h4>It's heading four..</h4>
+            <p id="para">It's paragraph....</p>
+            <span>It's span...</span>
+        </div>
+        <div id="box"></div>
+        <div id="msg"></div>
+        <p id="target">this isn original</p>
+        <div id="outer">Hii!!</div>
+        <div id="time">
+        <p id="old">old child</p>
+        </div>
+        <ul>fruits</ul>
+        <li>orange</li>
+
+        <script>
+            //getElementById
+           const value = document.getElementById("result");
+           console.log(value.innerText);
+            
+           //getElementsByName
+           const rs = document.getElementsByName("gender");
+           console.log(rs);
+
+           //getElementsByTagName
+           const pa = document.getElementsByTagName("p");
+           console.log(pa[0].innerText);
+
+           //getElementsByClassName
+           const para = document.getElementsByClassName("p1");
+           console.log(para[1].innerText)
+
+           //querySelector
+           const qu =document.querySelector(".p1");
+           console.log(qu);
+
+           //querySelectorAll
+           const que = document.querySelectorAll(".p1");
+           console.log(que[1].innerText);
+
+           //parentElement
+           const pg =document.getElementById("inner");
+            const out=pg.parentElement;
+           console.log(out.id);
+
+           //childElement
+           const pgr =document.getElementById("outer");
+           const inr1 =pgr.children.length;
+           const inr2 =pgr.childNodes;
+           const inr3 =pgr.firstElementChild;
+           const inr4 =pgr.lastElementChild;
+           console.log(inr1);
+           console.log(inr2);
+           console.log(inr3);
+           console.log(inr4);
+
+           //siblingElement
+           const sib=document.getElementById("para");
+           const sb1=sib.nextElementSibling.innerText;
+           const sb2=sib.previousElementSibling;
+           console.log(sb1);
+           console.log(sb2);
+
+           //Second Session
+            let newdiv=document.createElement("div");//create element
+            newdiv.textContent="hello world";
+            document.getElementById("box").appendChild(newdiv);//append child
+
+            document.getElementById("msg").innerHTML="<p>this is para<strong>graph</strong></p>" 
+            let newP=document.createElement("p");
+            newP.textContent="hy how are you?";
+            document.getElementById("target").after(newP);
+
+            let box=document.getElementById("target");
+            box.append("these is new paragraph",document.createElement("hr"));//hr used to underline
+            box.prepend("you are here",document.createElement("hr"));//prepand is used to add tag first
+
+            document.getElementById("outer").insertAdjacentHTML("afterbegin","<p>this is insert after begin</p>");
+
+            let meow=document.createElement("p");
+            meow.textContent="New One";
+            let oldP=document.getElementById("old");
+            document.getElementById("time").replaceChild(meow,oldP);
+            let copy=document.getElementById("time").cloneNode(true);
+            document.body.appendChild(copy);
+
+            //let remove=document.getElementById("time");
+            //remove.removeChild();
+
+            let a=document.createElement("li");
+            a.textContent="grapes";
+            let list=document.getElementById("fruits");
+            let firstitem=list.firstElementChild;
+            list.insertBefore(a,firstitem);
+
+
+
+        </script>
+    </body>
+</html>

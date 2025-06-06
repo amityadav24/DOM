@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>DOM Attributes</title>
+    </head>
+    <body>
+        <a href="https://www.programiz.com/javascript/online-compiler/" id="link">Compiler</a>
+        <img src="Photo.jpg" id="ph" alt="Photo">
+        <script>
+            //getAttribute
+            let anchor=document.getElementById("link");
+            let a=anchor.getAttribute("href");
+            console.log(a);
+            
+            //setAttribute
+            let set=document.getElementById("ph");
+            let al=set.setAttribute("alt","It's a photo.");
+
+            //hashAttribute
+            let ha=set.hasAttribute("alt");
+            console.log(ha);
+
+            //removeAttribute
+            //let re=set.removeAttribute("alt");
+            console.log(re);
+
+        </script>
+    </body>
+</html>
